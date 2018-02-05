@@ -1,0 +1,43 @@
+---
+layout: default
+---
+
+<h1 class="post-title">Schedule</h1>
+<div class="col-lg-8 col-md-10 col-sm-12 post-content" style="padding-left:0px">
+    <table class="table">
+        <thead><tr>
+                <th>Date</th>
+                <th>Leader</th>         
+            </tr></thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+
+<script>
+    // downloads schedule and fills in the above table
+    //  - past post get links to the corresponding posts
+    //  - the next post in the future gets highlighted
+    //  - other posts are just listed
+    var schedule = d3.select("table tbody");
+    var burl = "{{site.baseurl}}/";
+    d3.csv(burl+"_data/schedule.csv", function (data) {
+        var today = new Date();
+        var foundnext = false;
+        data.forEach(function (d) {
+            var dtr = schedule.append("tr");
+            var ddate = new Date(d["date"]);
+            if (ddate < today) {
+                var dlink = burl + d["date"].replace(/\-/g, "/") + "/";
+                dtr.append("td").append("a").attr("href", dlink).html(d["date"]);
+            } else {
+                dtr.append("td").html(d["date"]);
+                if (!foundnext) {
+                    dtr.attr("class", "next-meeting");
+                    foundnext = true;
+                }
+            }
+            dtr.append("td").html(d["leader"]);
+        });
+    });
+</script>

@@ -1,0 +1,54 @@
+---
+layout: default
+---
+
+
+<h1 class="next-meeting">Next meeting</h1>
+<span class="post-date" id="next-date"></span>
+<span class="post-leader" id="next-leader"></span>
+
+<div id="agenda" class="col-lg-8 col-md-10 col-sm-12 col-inner">
+    {{content}}    
+</div>
+
+
+{% if site.posts.size > 0 %}
+<h1 class="past-meetings">Past meetings</h1>
+<div class="col-sm-12 col-lg-8 col-md-10 col-inner">
+    <ul class="list-inline" id="posts-list">
+        {% for post in site.posts %}
+        <li class="list-inline-item">
+            <span class="post-date">{{ post.date | date: "%-d %b %Y" }}</span>
+            <h3>
+                <a class="post-link" href="{{ post.url | relative_url }}">
+                    {{ post.title | escape }}
+                </a>
+            </h3>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+
+
+<script>
+    // download the schedule and find the next time and leader
+    var nextdate = "";
+    var nextleader = "";
+    d3.csv("{{site.baseurl}}/_data/schedule.csv", function (data) {
+        var today = new Date();
+        var foundnext = false;
+        data.forEach(function (d) {
+            var ddate = new Date(d["date"]);
+            if (!foundnext && ddate > today) {
+                nextdate = ddate.getDate() + " " + months[ddate.getMonth()]
+                        + " " + ddate.getFullYear();
+                nextleader = d["leader"];
+                foundnext = true;
+            }
+        });
+        d3.select("#next-leader").html("leader: " + nextleader);
+        d3.select("#next-date").html(nextdate);
+    });
+
+</script>

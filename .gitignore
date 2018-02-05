@@ -1,0 +1,10 @@
+## local scripts for jekyll
+*bash
+.sass*
+
+## local development
+nbproj*
+*~
+
+## compiled site
+_site*

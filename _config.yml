@@ -1,0 +1,28 @@
+# Site settings
+title: WHRI Computational Biology
+email: t.konopka@qmul.ac.uk
+description: >- 
+  Researchers meet to discuss current topics, journal articles, 
+  and ideas in computational biology and bioinformatics.
+baseurl: "" 
+url: ""
+
+# Build settings
+markdown: kramdown
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+include:
+    - _data
+    - _includes
+    - index.md
+    - about.md
+    - schedule.md
+ 

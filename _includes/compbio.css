@@ -1,0 +1,55 @@
+/*
+Custom styles for CompBioMeetings
+*/
+
+.navbar {
+    margin-bottom: 2em;
+}
+h1.post-title {
+    margin-bottom: 0.75em;
+}
+h2, h3, h4 {
+    margin-top: 1.5em;
+    margin-bottom: 0.75em;
+}
+
+
+/** Styling of front page, list of posts **/
+ul {
+    list-style: none;
+}
+.col-inner {
+    padding-left: 0px;
+}
+.past-meetings, .next-meeting {
+    margin-bottom: 1em;
+}
+.past-meetings {
+    margin-top: 2.5em;
+}
+#posts-list h3, #next-meeting h3, #next-title {
+    margin-top: 0em;
+}
+span.post-date, span.post-leader {
+    color: #777;
+}
+span.post-leader {
+    padding-left: 0.75em;
+}
+#posts-list li {
+    margin-bottom: 1em; 
+}
+#agenda {
+    margin-top: 1em;
+}
+
+/** Styling for post pages **/
+.post-content {
+    margin-top: 2.5em;
+}
+
+
+/** Styling for schedule **/
+tr.next-meeting {
+    background-color: #f4f2ff;
+}
