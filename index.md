@@ -4,7 +4,7 @@
 layout: home
 ---
 
+# Discussion 
+- new release of metaOmics software and applications (see https://github.com/metaOmics/metaOmics)
 
-Paper for discussion: TBA
-
-Quick demonstration on how to edit meeting web pages.
+- Quick demonstration on how to edit meeting web pages.
