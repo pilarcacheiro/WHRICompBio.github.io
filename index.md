@@ -4,7 +4,4 @@
 layout: home
 ---
 
-# Discussion 
-- new release of metaOmics software and applications (see https://github.com/metaOmics/metaOmics)
-
-- Quick demonstration on how to edit meeting web pages.
+New agenda here
