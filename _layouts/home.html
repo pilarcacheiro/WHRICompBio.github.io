@@ -36,11 +36,11 @@ layout: default
     var nextdate = "";
     var nextleader = "";
     d3.csv("{{site.baseurl}}/_data/schedule.csv", function (data) {
-        var today = new Date();
+        var yesterday = new Date(new Date().getTime()-24*3600*1000);
         var foundnext = false;
         data.forEach(function (d) {
             var ddate = new Date(d["date"]);
-            if (!foundnext && ddate > today) {
+            if (!foundnext && ddate > yesterday) {
                 nextdate = ddate.getDate() + " " + months[ddate.getMonth()]
                         + " " + ddate.getFullYear();
                 nextleader = d["leader"];
