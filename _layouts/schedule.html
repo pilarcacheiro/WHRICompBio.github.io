@@ -22,12 +22,12 @@ layout: default
     var schedule = d3.select("table tbody");
     var burl = "{{site.baseurl}}/";
     d3.csv(burl+"_data/schedule.csv", function (data) {
-        var today = new Date();
+	var yesterday = new Date(new Date().getTime()-24*3600*1000);        
         var foundnext = false;
         data.forEach(function (d) {
             var dtr = schedule.append("tr");
             var ddate = new Date(d["date"]);
-            if (ddate < today) {
+            if (ddate < yesterday) {
                 var dlink = burl + d["date"].replace(/\-/g, "/") + "/";
                 dtr.append("td").append("a").attr("href", dlink).html(d["date"]);
             } else {
