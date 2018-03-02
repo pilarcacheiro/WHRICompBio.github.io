@@ -4,4 +4,4 @@
 layout: home
 ---
 
-New agenda here
+Hail v0.1
